@@ -6,9 +6,10 @@
     "start": "supervisor app.js"
   },
   "dependencies": {
-    "request": "^2.51.0",
-    "colors":"*",
-    "iconv-lite":"*",
-    "bufferhelper":"*"
+    "bufferhelper": "*",
+    "colors": "*",
+    "express": "^4.13.3",
+    "iconv-lite": "*",
+    "request": "^2.51.0"
   }
 }
