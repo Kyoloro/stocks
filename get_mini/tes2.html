@@ -1,0 +1,136 @@
+<script id="J_chooseStepTemplate" type="text/x-dot-template">
+    <div class="step-title">
+        {{=it.stepIndex}}. {{=it.next_title}}
+        <i class="pro-version-desc-icon">!</i>
+        <span class="pro-version-desc J_verDesc" data-index={{=it.stepIndex}}></span>
+    </div>
+    <ul class="step-list clearfix J_stepList">
+        {{~it.children :itemValue:itemIndex}}
+            <li class="J_stepItem
+                {{? !itemValue.clickable}}
+                    disable
+                {{?}}
+                {{? it.lock}}
+                    lock
+                {{?}}"
+                data-index="{{=it.stepIndex}}"
+                data-node-id="{{=itemValue.node_id}}"
+                
+                {{? itemValue.desc}}
+                    data-desc="{{=itemValue.desc}}"
+                {{?}}
+
+                {{? itemValue.goods_id}}
+                    data-gid="{{=itemValue.goods_id}}"
+                {{?}}
+
+                {{? itemValue.img}}
+                    data-img="{{=itemValue.img}}"
+                {{?}}
+
+                {{? itemValue.price &&  itemValue.price != 0 }}
+                    title = "{{=itemValue.title}} {{=itemValue.price}}元"
+                {{?? }}
+                    title = "{{=itemValue.title}}"
+                {{? }}
+
+                {{? itemValue.presales}}
+                    data-presales="{{=itemValue.is_presales}}"
+                    data-presales-status="{{=itemValue.is_presales_open}}"
+                    data-presales-url="{{=itemValue.presales_url}}"
+                {{?}}
+
+                {{? itemValue.is_opensell}}
+                    data-opensell="{{=itemValue.is_opensell}}"
+                    data-opensell-status="{{=itemValue.is_opensell_open}}"
+                    data-opensell-url="{{=itemValue.opensell_url}}"
+                {{?}}
+
+                {{? itemValue.is_openbuy}}
+                    data-openbuy="{{=itemValue.is_openbuy}}"
+                    data-openbuy-status="{{=itemValue.is_openbuy_open}}"
+                    data-openbuy-url="{{=itemValue.openbuy_url}}"
+                {{?}}
+
+                {{? itemValue.is_presales}}
+                    data-presales="{{=itemValue.is_presales}}"
+                    data-presales-status="{{=itemValue.is_presales_open}}"
+                    data-presales-url="{{=itemValue.presales_url}}"
+                {{?}}
+
+                {{? itemValue.is_fixedlink}}
+                    data-fixedlink-url="{{=itemValue.fixedlink_url}}"
+                    data-fixedlink-txt="{{=itemValue.fixedlink_txt}}"
+                {{?}}
+
+                {{? itemValue.href_url}}
+                    data-href="{{=itemValue.href_url}}"
+                {{?}}
+            >
+                {{? itemValue.icon}}
+                    <img src="{{=itemValue.icon}}" alt="{{=itemValue.title}}">
+                {{? }}
+
+                {{=itemValue.title}}
+
+                {{? !itemValue.clickable}}
+                    缺货
+                {{?}}
+            </li>
+        {{~}}
+    </ul>
+</script>
+<script id="J_chooseResuleTemplate" type="text/x-dot-template">
+    {{? it.openSell}}
+        <a
+            {{? it.openSellStatus}}
+                href="javascript:void(0);"
+                data-gid ="{{=it.gid}}"
+                class="btn btn-primary" id="J_proBuyBtn">
+                立即购买
+            {{?? }}
+                href="javascript:void(0)"
+                class="btn btn-dakeLight">
+                暂时缺货
+            {{? }}
+        </a>
+    {{?}}
+
+    {{? it.openbuy}}
+        <a
+            {{? it.openbuyStatus}}
+                href="{{=it.openbuyUrl}}"
+                class="btn btn-primary">
+                预约开放购买
+            {{?? }}
+                href="javascript:void(0)"
+                class="btn btn-dakeLight">
+                预约未开始
+            {{? }}
+        </a>
+    {{?}}
+
+    {{? it.presales}}
+        <a
+            {{? it.presalesStatus}}
+                href="{{=it.presalesUrl}}"
+                class="btn btn-primary">
+                购买预售
+            {{?? }}
+                href="javascript:void(0)"
+                class="btn btn-dakeLight">
+                预售缺货
+            {{? }}
+        </a>
+    {{?}}
+
+    {{? it.is_fixedlink}}
+    <a href="{{=it.fixedlink_url}}" target="_blank" class="btn btn-primary">
+        {{=it.fixedlink_txt}}
+    </a>
+    {{?}}
+
+    {{? it.saleDesc}}
+        <span class="next-desc">{{=it.saleDesc}}</span>
+    {{?}}
+</script>

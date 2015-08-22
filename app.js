@@ -13,7 +13,7 @@ var space = {
   s16:"                "
 };
 
-var stockIdList = ['sh601118','sh600684','sz300059'];
+var stockIdList = ['sh601118','sh600684','sz300059','sz300168'];
 
 var stockResultList = [];
 

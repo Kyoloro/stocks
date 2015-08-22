@@ -1,3 +1,4 @@
 API : sina (http://hq.sinajs.cn/list=)
 
 sz300059  东方财富
+sz300168  wan da jituan
