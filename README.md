@@ -12,4 +12,4 @@ node >= 0.12.0
 - `> cd stocks`
 - `> npm i`
 - 改变 `config.js` 文件内容
-- `node app.js`
+- `> node app.js`
